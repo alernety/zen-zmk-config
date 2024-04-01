@@ -1,14 +1,15 @@
 name: Build ZMK firmware
+
 on:
-  workflow_dispatch:
   push:
-    paths:
-      - config/west.yml
-      - config/*.keymap
-      - config/*.dtsi
-      - boards/**
-      - build.yaml
+    paths-ignore:
+      - 'images/**'
+      - 'keymap-drawer.config.yaml'
+      - 'keymap/**'
+      - '.vscode/**'
+      - 'README.md'
+      - '.gitattributes'
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: urob/zmk/.github/workflows/build-user-config.yml@build-with-submodules
