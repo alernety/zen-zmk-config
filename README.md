@@ -2,4 +2,4 @@
 
 Keyboard config for corne layout
 
-![Key layout](keymap/corne.svg)
+![Key layout](keymap-drawer/corne.svg)
