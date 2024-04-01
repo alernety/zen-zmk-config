@@ -144,8 +144,8 @@ parse_config:
   preprocess: true
   skip_binding_parsing: false
   raw_binding_map:
-    "&bootloader": "Boot"
-    "&sys_reset": "Reset"
+    # "&bootloader": "Boot"
+    # "&sys_reset": "Reset"
     "&mkp LCLK": "$$mdi:mouse-left-click$$"
     "&mkp RCLK": "$$mdi:mouse-right-click$$"
     "&mkp MCLK": "$$mdi:mouse-scroll-wheel$$"
