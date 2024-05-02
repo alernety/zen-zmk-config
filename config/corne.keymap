@@ -55,6 +55,10 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
+// shift macros for OUT contorls
+SHIFT_FUNCTION(s_out_ble, ___, &out OUT_BLE)
+SHIFT_FUNCTION(s_out_tog, ___, &out OUT_TOG)
+SHIFT_FUNCTION(s_out_usb, ___, &out OUT_USB)
 
 // shift macros for BT contorls
 SHIFT_MACRO(s_bt_sel_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
@@ -223,11 +227,11 @@ ZMK_LAYER(MOUSE,
 
 ZMK_LAYER(CONF,
  //╭.............┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬.............╮
-     &kp C_NEXT    &s_bt_sel_0   &s_bt_sel_1   &s_bt_sel_2   &s_bt_sel_3   &s_bt_sel_4     ___           ___           ___           ___           ___           &out OUT_BLE
+     &kp C_NEXT    &s_bt_sel_0   &s_bt_sel_1   &s_bt_sel_2   &s_bt_sel_3   &s_bt_sel_4     ___           ___           ___           ___           ___           &s_out_ble
  //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-     &kp PLY_POS   &kp C_BRI_DN  &kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE      ___           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI      &out OUT_TOG
+     &kp PLY_POS   &kp C_BRI_DN  &kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE      ___           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI      &s_out_tog
  //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-     &kp C_PREV    ___           ___           ___           &bootloader   &sys_reset      &sys_reset    &bootloader   ___           ___           ___           &out OUT_USB
+     &kp C_PREV    ___           ___           ___           &bootloader   &sys_reset      &sys_reset    &bootloader   ___           ___           ___           &s_out_usb
  //╰.............┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴.............╯
                                                ___           ___           ___             ___           ___           ___
  //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
