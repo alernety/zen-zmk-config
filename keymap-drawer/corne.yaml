@@ -270,7 +270,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - OUT BLE
   - $$mdi:play-pause$$
   - $$mdi:brightness-5$$
   - $$mdi:brightness-7$$
@@ -282,7 +282,7 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
-  - ''
+  - OUT TOG
   - $$mdi:skip-previous$$
   - ''
   - ''
@@ -294,7 +294,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - OUT USB
   - ''
   - ''
   - ''
