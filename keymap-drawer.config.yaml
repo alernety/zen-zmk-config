@@ -168,6 +168,9 @@ parse_config:
     "&to 0": "$$mdi:controller-off$$"
     "&sys_reset": "$$mdi:cog-refresh$$"
     "&bootloader": "$$mdi:chip$$"
+    "&s_out_ble": "$$mdi:bluetooth-transfer$$"
+    "&s_out_tog": "$$mdi:repeat-variant$$"
+    "&s_out_usb": "$$mdi:usb$$"
   sticky_label: sticky
   toggle_label: toggle
   trans_legend:
