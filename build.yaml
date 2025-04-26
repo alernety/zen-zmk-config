@@ -20,10 +20,8 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: seeeduino_xiao_ble
     shield: settings_reset
-    artifact-name: xiao_settings_reset
   - board: nice_nano_v2
     shield: settings_reset
-    artifact-name: nnv2_settings_reset
   # Add these cmake-args to the peripherals you wish to use with the dongle
   - board: nice_nano_v2
     shield: corne_left
