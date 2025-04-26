@@ -3,9 +3,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#include "../helper/macro.h"
-#include "../zmk-nodefree-config/helper.h"
-#include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
+#include "helper/helper.h"
+#include "helper/keypos_42keys.h"
+#include "helper/macro.h"
 
 #include "mouse.dtsi"
 
