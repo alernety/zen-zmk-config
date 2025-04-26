@@ -86,15 +86,15 @@ SHIFT_FUNCTION(s_at_amp, &kp AT_SIGN, &kp AMPERSAND)
 SHIFT_FUNCTION(s_col_scol, &kp COLON, &kp SEMICOLON)
 
 /* smart mouse */
-ZMK_BEHAVIOR(smart_mouse, tri_state,
-    bindings = <&tog MOS>, <&none>, <&tog MOS>;
-    ignored-key-positions = <                  RT1 RT2 RT3 RT4
-                             LM4 LM3 LM2 LM1   RM1 RM2 RM3 RM4
-                                               RH0 RH1 RH2>;
-    ignored-layers = <MOS>, <BAS>;
-)
+// ZMK_BEHAVIOR(smart_mouse, tri_state,
+//     bindings = <&tog MOS>, <&none>, <&tog MOS>;
+//     ignored-key-positions = <                  RT1 RT2 RT3 RT4
+//                              LM4 LM3 LM2 LM1   RM1 RM2 RM3 RM4
+//                                                RH0 RH1 RH2>;
+//     ignored-layers = <MOS>, <BAS>;
+// )
 
-#define s_mouse smart_mouse
+// #define s_mouse smart_mouse
 
 /* left-hand HRMs */
 ZMK_BEHAVIOR(hml, hold_tap,
@@ -148,7 +148,7 @@ ZMK_BEHAVIOR(hmr, hold_tap,
 /* Horizontal combos - thumbs */
 ZMK_COMBO(bas_inner_thmbs, &to GM,     LH0 RH0, BAS,     COMBO_TERM_FAST)
 ZMK_COMBO(gm_inner_thmbs,  &to BAS,    LH0 RH0,      GM, COMBO_TERM_FAST)
-ZMK_COMBO(bas_mid_thmbs,   &s_mouse,   LH1 RH1, BAS,     COMBO_TERM_FAST)
+// ZMK_COMBO(bas_mid_thmbs,   &s_mouse,   LH1 RH1, BAS,     COMBO_TERM_FAST)
 ZMK_COMBO(bas_outer_thmbs, &caps_word, LH2 RH2, BAS,     COMBO_TERM_FAST)
 
 ZMK_LAYER(BASE,
