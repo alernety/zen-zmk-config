@@ -15,9 +15,10 @@
 include:
   - board: seeeduino_xiao_ble
     shield: corne_dongle
+    snippet: zmk-usb-logging
     # Enable ZMK Studio
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    # snippet: studio-rpc-usb-uart
+    # cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: seeeduino_xiao_ble
     shield: settings_reset
   - board: nice_nano_v2
@@ -25,7 +26,9 @@ include:
   # Add these cmake-args to the peripherals you wish to use with the dongle
   - board: nice_nano_v2
     shield: corne_left
+    snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano_v2
     shield: corne_right
+    snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
