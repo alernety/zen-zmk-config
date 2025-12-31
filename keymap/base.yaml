@@ -37,7 +37,7 @@ layers:
   - .
   - /
   - ']'
-  - {t: '$$mdi:keyboard-esc$$', h: MOUSE}
+  - {t: ⎋, h: MOUSE}
   - {t: '$$mdi:keyboard-tab$$', h: NAV}
   - {t: '$$mdi:keyboard-space$$', h: SYM}
   - {t: '$$mdi:keyboard-return$$', h: NUM}
@@ -80,7 +80,7 @@ layers:
   - {t: $, s: '`'}
   - {t: ':', s: ;}
   - ''
-  - $$mdi:keyboard-esc$$
+  - ⎋
   - $$mdi:keyboard-tab$$
   - {type: held}
   - ''
@@ -166,7 +166,7 @@ layers:
   - ''
   - ''
   - ''
-  - $$mdi:keyboard-esc$$
+  - ⎋
   - ''
   - ''
   - ''
@@ -301,8 +301,8 @@ layers:
   - ''
   - ''
   - {type: held}
-  GAME: ['$$mdi:keyboard-esc$$', Q, W, E, R, T, Y, U, I, O, P, '', '$$mdi:keyboard-tab$$', A, S, D, F, G, H, J, K, L, ;, '', '$$mdi:apple-keyboard-shift$$', Z, X,
-    C, V, B, N, M, ',', ., /, '', '$$mdi:apple-keyboard-option$$', '$$mdi:apple-keyboard-control$$', '$$mdi:keyboard-space$$', '$$mdi:keyboard-return$$', '$$mdi:backspace-outline$$',
+  GAME: [⎋, Q, W, E, R, T, Y, U, I, O, P, '', '$$mdi:keyboard-tab$$', A, S, D, F, G, H, J, K, L, ;, '', '$$mdi:apple-keyboard-shift$$', Z, X, C, V, B, N, M, ',',
+    ., /, '', '$$mdi:apple-keyboard-option$$', '$$mdi:apple-keyboard-control$$', '$$mdi:keyboard-space$$', '$$mdi:keyboard-return$$', '$$mdi:backspace-outline$$',
     GAME_N]
   GAME_N:
   - {t: '$$mdi:menu-down-outline$$', type: trans}
