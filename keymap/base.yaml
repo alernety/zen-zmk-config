@@ -260,11 +260,11 @@ layers:
   - $$mdi:mouse-scroll-wheel$$
   CONF:
   - $$mdi:skip-next$$
-  - {t: '$$mdi:bluetooth$$', s: Clr BT 0}
-  - {t: BT, h: '1', s: Clr BT 1}
-  - {t: BT, h: '2', s: Clr BT 2}
-  - {t: BT, h: '3', s: Clr BT 3}
-  - {t: BT, h: '4', s: Clr BT 4}
+  - {t: '$$mdi:bluetooth$$', s: '$$mdi:close$$'}
+  - {t: '$$mdi:bluetooth$$', s: '$$mdi:close$$'}
+  - {t: '$$mdi:bluetooth$$', s: '$$mdi:close$$'}
+  - {t: '$$mdi:bluetooth$$', s: '$$mdi:close$$'}
+  - {t: '$$mdi:bluetooth$$', s: '$$mdi:close$$'}
   - ''
   - ''
   - ''
