@@ -130,7 +130,7 @@ draw_config:
     /* End Tabler Icons Cleanup */
   svg_extra_style: ''
   shrink_wide_legends: 7
-  glyph_tap_size: 14
+  glyph_tap_size: 22
   glyph_hold_size: 12
   glyph_shifted_size: 10
   glyphs: {}
