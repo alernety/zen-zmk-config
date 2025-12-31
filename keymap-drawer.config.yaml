@@ -35,7 +35,7 @@ draw_config:
 
     /* font and background color specifications */
     svg.keymap {
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+        font-family: sans-serif;
         font-size: 22px;
         font-kerning: normal;
         text-rendering: optimizeLegibility;
@@ -49,7 +49,7 @@ draw_config:
         stroke-width: 1;
     }
 
-    /* default key side styling, only used is draw_key_sides is set */
+    /* default key side styling, only used if draw_key_sides is set */
     rect.side {
         filter: brightness(90%);
     }
