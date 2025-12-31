@@ -35,7 +35,7 @@ draw_config:
 
     /* font and background color specifications */
     svg.keymap {
-        font-family: sans-serif;
+        font-family: Avenir, 'Avenir Next', 'Segoe UI', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
         font-size: 22px;
         font-kerning: normal;
         text-rendering: optimizeLegibility;
