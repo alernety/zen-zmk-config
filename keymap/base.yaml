@@ -180,10 +180,10 @@ layers:
   - ''
   - ''
   - ''
-  - Home
-  - Page Down
-  - Page Up
-  - End
+  - ↖
+  - ⇟
+  - ⇞
+  - ↘
   - ''
   - ''
   - $$mdi:apple-keyboard-control$$
