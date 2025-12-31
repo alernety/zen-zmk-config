@@ -168,7 +168,7 @@ svg path {
 /* font and background color specifications */
 svg.keymap {
     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    font-size: 14px;
+    font-size: 22px;
     font-kerning: normal;
     text-rendering: optimizeLegibility;
     fill: #24292e;
