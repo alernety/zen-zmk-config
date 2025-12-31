@@ -180,10 +180,10 @@ layers:
   - ''
   - ''
   - ''
-  - ↖
+  - $$mdi:arrow-top-left$$
   - ⇟
   - ⇞
-  - ↘
+  - $$mdi:arrow-bottom-right$$
   - ''
   - ''
   - $$mdi:apple-keyboard-control$$
