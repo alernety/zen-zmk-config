@@ -85,6 +85,7 @@ parse_config:
     "&bt BT_SEL 4": "$$mdi:bluetooth$$"
     "&sys_reset": "$$mdi:cog-refresh$$"
     "&bootloader": "$$mdi:chip$$"
+    "&mo GMN": '$$mdi:numeric$$'
   sticky_label: sticky
   toggle_label: toggle
   trans_legend:
