@@ -304,6 +304,12 @@ svg.keymap {
     font-family: Avenir, 'Avenir Next', 'Segoe UI', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     font-size: 20px;
 }
+svg text.key.shifted {
+    font-weight: bold;
+}
+svg text.layer-activator {
+    text-decoration: underline;
+}
 </style>
 <g transform="translate(30, 0)" class="layer-BASE">
 <text x="0" y="28" class="label" id="BASE">BASE:</text>
