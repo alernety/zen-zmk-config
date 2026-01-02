@@ -34,6 +34,12 @@ draw_config:
         font-family: Avenir, 'Avenir Next', 'Segoe UI', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
         font-size: 20px;
     }
+    svg text.key.shifted {
+        font-weight: bold;
+    }
+    svg text.layer-activator {
+        text-decoration: underline;
+    }
 
   shrink_wide_legends: 7
   glyph_tap_size: 20
