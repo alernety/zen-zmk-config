@@ -303,7 +303,7 @@ layers:
   - {type: held}
   GAME: [⎋, Q, W, E, R, T, Y, U, I, O, P, '', '$$mdi:keyboard-tab$$', A, S, D, F, G, H, J, K, L, ;, '', '$$mdi:apple-keyboard-shift$$', Z, X, C, V, B, N, M, ',',
     ., /, '', '$$mdi:apple-keyboard-option$$', '$$mdi:apple-keyboard-control$$', '$$mdi:keyboard-space$$', '$$mdi:keyboard-return$$', '$$mdi:backspace-outline$$',
-    GAME_N]
+    '$$mdi:numeric$$']
   GAME_N:
   - {t: '$$mdi:menu-down-outline$$', type: trans}
   - '1'
@@ -346,7 +346,7 @@ layers:
   - {t: '$$mdi:menu-down-outline$$', type: trans}
   - {t: '$$mdi:menu-down-outline$$', type: trans}
   - {t: '$$mdi:menu-down-outline$$', type: trans}
-  - {type: held}
+  - {t: '$$mdi:menu-down-outline$$', type: trans}
 combos:
 - p: [38, 39]
   k: $$mdi:controller$$
