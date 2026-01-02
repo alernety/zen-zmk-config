@@ -45,7 +45,12 @@ draw_config:
   glyph_tap_size: 20
   glyph_hold_size: 12
   glyph_shifted_size: 10
-  glyphs: {}
+  glyphs:
+    esc: |
+      <svg viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.777 11.235 11.21 12.79 7.15 8.739l-1.823 1.836V5.327h5.236L8.715 7.174Zm5.896.771q0 2.728-1.933 4.698-1.933 1.969-4.746 1.969-2.63 0-4.563-1.762-1.933-1.773-2.104-4.905h1.994q.122 2.214 1.492 3.45 1.383 1.223 3.18 1.223 1.86 0 3.255-1.297 1.407-1.309 1.407-3.376 0-1.835-1.248-3.193-1.236-1.358-3.413-1.48V5.327q3.131.098 4.905 2.165 1.774 2.055 1.774 4.514z" style="font-size:25.0529px;fill:#000;fill-opacity:1;stroke-width:.854074" aria-label="Esc"/>
+      </svg>
   glyph_urls:
     tabler: https://unpkg.com/@tabler/icons/icons/{}.svg
     mdi: https://raw.githubusercontent.com/Templarian/MaterialDesign-SVG/master/svg/{}.svg
@@ -102,8 +107,7 @@ parse_config:
     DEL: '$$mdi:backspace-reverse-outline$$'
     RET: '$$mdi:keyboard-return$$'
     SPACE: '$$mdi:keyboard-space$$'
-    #ESC: '$$mdi:keyboard-esc$$'
-    ESC: '⎋'
+    ESC: '$$esc$$'
     TAB: '$$mdi:keyboard-tab$$'
     LGUI: '$$mdi:apple-keyboard-command$$'
     LALT: '$$mdi:apple-keyboard-option$$'
