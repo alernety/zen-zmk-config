@@ -6,6 +6,7 @@ draw_config:
   combo_h: 26.0
   key_rx: 6.0
   key_ry: 6.0
+  dark_mode: 'auto'
   n_columns: 1
   separate_combo_diagrams: false
   combo_diagrams_scale: 2
@@ -27,7 +28,7 @@ draw_config:
     rel_h: 12
     rx: 4
     ry: 4
-  svg_style: |
+  svg_extra_style: |
     /* inherit to force styles through use tags */
     svg path {
         fill: inherit;
@@ -116,19 +117,6 @@ draw_config:
         fill: none;
     }
 
-    /* Start Tabler Icons Cleanup */
-    /* cannot use height/width with glyphs */
-    .icon-tabler > path {
-        fill: inherit;
-        stroke: inherit;
-        stroke-width: 2;
-    }
-    /* hide tabler's default box */
-    .icon-tabler > path[stroke="none"][fill="none"] {
-        visibility: hidden;
-    }
-    /* End Tabler Icons Cleanup */
-  svg_extra_style: ''
   shrink_wide_legends: 7
   glyph_tap_size: 20
   glyph_hold_size: 12
@@ -159,7 +147,7 @@ parse_config:
     "&mmv MOVE_DOWN": "$$mdi:arrow-down-bold-outline$$"
     "&caps_word": "$$mdi:keyboard-caps$$"
     "&s_mouse": "$$mdi:mouse-outline$$"
-    "&u_macro_s_bt_sel_0": "$$mdi:close-thick$$"   
+    "&u_macro_s_bt_sel_0": "$$mdi:close-thick$$"
     "&u_macro_s_bt_sel_1": "$$mdi:close-thick$$"
     "&u_macro_s_bt_sel_2": "$$mdi:close-thick$$"
     "&u_macro_s_bt_sel_3": "$$mdi:close-thick$$"
@@ -297,7 +285,7 @@ parse_config:
     NON_US_HASH: '#'
     NUHS: '#'
     TILDE2: '~'
-  zmk_combos: 
+  zmk_combos:
     combo_bas_inner_thmbs: {"align": "top", "offset": 0.5}
     combo_gm_inner_thmbs: {"align": "top", "offset": 0.5}
     combo_bas_mid_thmbs: {"align": "bottom", "offset": 0.8}
