@@ -203,6 +203,7 @@ parse_config:
     NON_US_HASH: '#'
     NUHS: '#'
     TILDE2: '~'
+    GAME_N: '$$mdi:numeric$$'
   zmk_combos:
     combo_bas_inner_thmbs: {"align": "top", "offset": 0.5}
     combo_gm_inner_thmbs: {"align": "top", "offset": 0.5}
