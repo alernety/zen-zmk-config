@@ -38,7 +38,7 @@ draw_config:
         font-weight: bold;
     }
     svg text.layer-activator {
-        text-decoration: underline;
+        text-decoration: none;
     }
 
   shrink_wide_legends: 7
