@@ -8,7 +8,7 @@ Personal ZMK firmware configuration for Corne-style split keyboards. Inspired by
 
 Keyboard config for corne layout
 
-![Keymap](keymap/base.svg)
+![Keymap](keymap-drawer/base.svg)
 <!-- ![Key layout](keymap-drawer/corne.svg) -->
 
 ## Features

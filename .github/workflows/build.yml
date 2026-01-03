@@ -6,7 +6,7 @@ on:
     paths-ignore:
       - 'images/**'
       - 'keymap-drawer.config.yaml'
-      - 'keymap/**'
+      - 'keymap-drawer/**'
       - '.vscode/**'
       - 'README.md'
       - '.gitattributes'
