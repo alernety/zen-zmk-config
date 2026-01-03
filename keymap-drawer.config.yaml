@@ -6,6 +6,7 @@ draw_config:
   combo_h: 26.0
   key_rx: 6.0
   key_ry: 6.0
+  dark_mode: 'auto'
   n_columns: 1
   separate_combo_diagrams: false
   combo_diagrams_scale: 2
@@ -27,113 +28,29 @@ draw_config:
     rel_h: 12
     rx: 4
     ry: 4
-  svg_style: |
-    /* inherit to force styles through use tags */
-    svg path {
-        fill: inherit;
-    }
-
+  svg_extra_style: |
     /* font and background color specifications */
     svg.keymap {
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-        font-size: 14px;
-        font-kerning: normal;
-        text-rendering: optimizeLegibility;
-        fill: #24292e;
+        font-family: Avenir, 'Avenir Next', 'Segoe UI', Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        font-size: 20px;
     }
-
-    /* default key styling */
-    rect.key {
-        fill: #f6f8fa;
-        stroke: #c9cccf;
-        stroke-width: 1;
-    }
-
-    /* default key side styling, only used is draw_key_sides is set */
-    rect.side {
-        filter: brightness(90%);
-    }
-
-    /* color accent for combo boxes */
-    rect.combo, rect.combo-separate {
-        fill: #cdf;
-    }
-
-    /* color accent for held keys */
-    rect.held, rect.combo.held {
-        fill: #fdd;
-    }
-
-    /* color accent for ghost (optional) keys */
-    rect.ghost, rect.combo.ghost {
-        stroke-dasharray: 4, 4;
-        stroke-width: 2;
-    }
-
-    text {
-        text-anchor: middle;
-        dominant-baseline: middle;
-    }
-
-    /* styling for layer labels */
-    text.label {
+    svg text.key.shifted {
         font-weight: bold;
-        text-anchor: start;
-        stroke: white;
-        stroke-width: 2;
-        paint-order: stroke;
+    }
+    svg text.layer-activator {
+        text-decoration: none;
     }
 
-    /* styling for combo tap, and key hold/shifted label text */
-    text.combo, text.hold, text.shifted {
-        font-size: 11px;
-    }
-
-    text.hold {
-        text-anchor: middle;
-        dominant-baseline: auto;
-    }
-
-    text.shifted {
-        text-anchor: middle;
-        dominant-baseline: hanging;
-    }
-
-    /* styling for hold/shifted label text in combo box */
-    text.combo.hold, text.combo.shifted {
-        font-size: 8px;
-    }
-
-    /* lighter symbol for transparent keys */
-    text.trans {
-        fill: #7b7e81;
-    }
-
-    /* styling for combo dendrons */
-    path.combo {
-        stroke-width: 1;
-        stroke: gray;
-        fill: none;
-    }
-
-    /* Start Tabler Icons Cleanup */
-    /* cannot use height/width with glyphs */
-    .icon-tabler > path {
-        fill: inherit;
-        stroke: inherit;
-        stroke-width: 2;
-    }
-    /* hide tabler's default box */
-    .icon-tabler > path[stroke="none"][fill="none"] {
-        visibility: hidden;
-    }
-    /* End Tabler Icons Cleanup */
-  svg_extra_style: ''
   shrink_wide_legends: 7
-  glyph_tap_size: 14
+  glyph_tap_size: 20
   glyph_hold_size: 12
   glyph_shifted_size: 10
-  glyphs: {}
+  glyphs:
+    esc: |
+      <svg viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.777 11.235 11.21 12.79 7.15 8.739l-1.823 1.836V5.327h5.236L8.715 7.174Zm5.896.771q0 2.728-1.933 4.698-1.933 1.969-4.746 1.969-2.63 0-4.563-1.762-1.933-1.773-2.104-4.905h1.994q.122 2.214 1.492 3.45 1.383 1.223 3.18 1.223 1.86 0 3.255-1.297 1.407-1.309 1.407-3.376 0-1.835-1.248-3.193-1.236-1.358-3.413-1.48V5.327q3.131.098 4.905 2.165 1.774 2.055 1.774 4.514z" style="font-size:25.0529px;stroke-width:.854074" aria-label="Esc"/>
+      </svg>
   glyph_urls:
     tabler: https://unpkg.com/@tabler/icons/icons/{}.svg
     mdi: https://raw.githubusercontent.com/Templarian/MaterialDesign-SVG/master/svg/{}.svg
@@ -144,8 +61,8 @@ parse_config:
   preprocess: true
   skip_binding_parsing: false
   raw_binding_map:
-    # "&bootloader": "Boot"
-    # "&sys_reset": "Reset"
+    "&bootloader": "Boot"
+    "&sys_reset": "Reset"
     "&mkp LCLK": "$$mdi:mouse-left-click$$"
     "&mkp RCLK": "$$mdi:mouse-right-click$$"
     "&mkp MCLK": "$$mdi:mouse-scroll-wheel$$"
@@ -159,18 +76,21 @@ parse_config:
     "&mmv MOVE_DOWN": "$$mdi:arrow-down-bold-outline$$"
     "&caps_word": "$$mdi:keyboard-caps$$"
     "&s_mouse": "$$mdi:mouse-outline$$"
-    "&u_macro_s_bt_sel_0": "Clr BT 0"   
-    "&u_macro_s_bt_sel_1": "Clr BT 1"
-    "&u_macro_s_bt_sel_2": "Clr BT 2"
-    "&u_macro_s_bt_sel_3": "Clr BT 3"
-    "&u_macro_s_bt_sel_4": "Clr BT 4"
+    "&u_macro_s_bt_sel_0": "$$mdi:close-thick$$"
+    "&u_macro_s_bt_sel_1": "$$mdi:close-thick$$"
+    "&u_macro_s_bt_sel_2": "$$mdi:close-thick$$"
+    "&u_macro_s_bt_sel_3": "$$mdi:close-thick$$"
+    "&u_macro_s_bt_sel_4": "$$mdi:close-thick$$"
     "&to 7": "$$mdi:controller$$"
     "&to 0": "$$mdi:controller-off$$"
+    "&bt BT_SEL 0": "$$mdi:bluetooth$$"
+    "&bt BT_SEL 1": "$$mdi:bluetooth$$"
+    "&bt BT_SEL 2": "$$mdi:bluetooth$$"
+    "&bt BT_SEL 3": "$$mdi:bluetooth$$"
+    "&bt BT_SEL 4": "$$mdi:bluetooth$$"
     "&sys_reset": "$$mdi:cog-refresh$$"
     "&bootloader": "$$mdi:chip$$"
-    "&s_out_ble": "$$mdi:bluetooth-transfer$$"
-    "&s_out_tog": "$$mdi:repeat-variant$$"
-    "&s_out_usb": "$$mdi:usb$$"
+    "&mo GMN": '$$mdi:numeric$$'
   sticky_label: sticky
   toggle_label: toggle
   trans_legend:
@@ -187,7 +107,7 @@ parse_config:
     DEL: '$$mdi:backspace-reverse-outline$$'
     RET: '$$mdi:keyboard-return$$'
     SPACE: '$$mdi:keyboard-space$$'
-    ESC: '$$mdi:keyboard-esc$$'
+    ESC: '$$esc$$'
     TAB: '$$mdi:keyboard-tab$$'
     LGUI: '$$mdi:apple-keyboard-command$$'
     LALT: '$$mdi:apple-keyboard-option$$'
@@ -197,13 +117,17 @@ parse_config:
     RALT: '$$mdi:apple-keyboard-option$$'
     RCTRL: '$$mdi:apple-keyboard-control$$'
     RSHFT: '$$mdi:apple-keyboard-shift$$'
+    CAPS: "$$mdi:apple-keyboard-caps$$"
     BRI_DN: '$$mdi:brightness-5$$'
     BRI_UP: '$$mdi:brightness-7$$'
     VOL_DN: '$$mdi:volume-medium$$'
     VOL_UP: '$$mdi:volume-high$$'
     PREVIOUS: '$$mdi:skip-previous$$'
+    C_PREV: '$$mdi:skip-previous$$'
     NEXT: '$$mdi:skip-next$$'
+    C_NEXT:  '$$mdi:skip-next$$'
     PLAY_PAUSE: '$$mdi:play-pause$$'
+    C_PP: '$$mdi:play-pause$$'
     MUTE: '$$mdi:volume-variant-off$$'
     LEFT: '$$mdi:arrow-left-bold$$'
     DOWN: '$$mdi:arrow-down-bold$$'
@@ -221,10 +145,14 @@ parse_config:
     F10: '$$mdi:keyboard-f10$$'
     F11: '$$mdi:keyboard-f11$$'
     F12: '$$mdi:keyboard-f12$$'
-    PG_UP: 'Page Up'
-    PG_DN: 'Page Down'
-    HOME: 'Home'
-    END: 'End'
+    #PG_UP: 'Page Up'
+    PG_UP: '⇞'
+    #PG_DN: 'Page Down'
+    PG_DN: '⇟'
+    #HOME: 'Home'
+    HOME: '$$mdi:arrow-top-left$$'
+    #END: 'End'
+    END: '$$mdi:arrow-bottom-right$$'
     GLOBE: '$$mdi:web$$'
     HASH: '#'
     POUND: '#'
@@ -286,7 +214,8 @@ parse_config:
     NON_US_HASH: '#'
     NUHS: '#'
     TILDE2: '~'
-  zmk_combos: 
+    GAME_N: '$$mdi:numeric$$'
+  zmk_combos:
     combo_bas_inner_thmbs: {"align": "top", "offset": 0.5}
     combo_gm_inner_thmbs: {"align": "top", "offset": 0.5}
     combo_bas_mid_thmbs: {"align": "bottom", "offset": 0.8}

@@ -1,41 +1,22 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
 
-#include "../zmk-nodefree-config/helper.h"
-#include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
+
+#include "../helper/helper.h"
+#include "../helper/key-labels/42.h"
 #include "../helper/macro.h"
 
 #include "mouse.dtsi"
+#include "hrms.dtsi"
+
 
 #define QUICK_TAP_MS 175
-
-// left-hand keys
-#define KEYS_L \
-     LT5 LT4 LT3 LT2 LT1 LT0 \
-     LM5 LM4 LM3 LM2 LM1 LM0 \
-     LB5 LB4 LB3 LB2 LB1 LB0
-/* ╰───────────╮ LH2 LH1 LH0 │
-               ╰─────────────╯ */
-
-// right-hand keys
-#define KEYS_R \
-     RT0 RT1 RT2 RT3 RT4 RT5 \
-     RM0 RM1 RM2 RM3 RM4 RM5 \
-     RB0 RB1 RB2 RB3 RB4 RB5
-/* │ RH0 RH1 RH2 ╭───────────╯
-   ╰─────────────╯ */
-
-// thumb keys
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2
 
 #define _v_ &trans
 #define ___ &none
 
 #define SC SEMICOLON
-#define PLY_POS C_PLAY_PAUSE
-#define C_PREV C_PREVIOUS
 
 /* short layer names */
 #define BAS 0
@@ -56,12 +37,12 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
-// shift macros for OUT contorls
+// shift macros for OUT controls
 SHIFT_FUNCTION(s_out_ble, ___, &out OUT_BLE)
 SHIFT_FUNCTION(s_out_tog, ___, &out OUT_TOG)
 SHIFT_FUNCTION(s_out_usb, ___, &out OUT_USB)
 
-// shift macros for BT contorls
+// shift macros for BT controls
 SHIFT_MACRO(s_bt_sel_0, &bt BT_SEL 0, &bt BT_SEL 0 &bt BT_CLR)
 SHIFT_MACRO(s_bt_sel_1, &bt BT_SEL 1, &bt BT_SEL 1 &bt BT_CLR)
 SHIFT_MACRO(s_bt_sel_2, &bt BT_SEL 2, &bt BT_SEL 2 &bt BT_CLR)
@@ -73,12 +54,12 @@ SHIFT_FUNCTION(s_qm_excl, &kp QMARK, &kp EXCL)
 SHIFT_FUNCTION(s_min_pls, &kp MINUS, &kp PLUS)
 SHIFT_FUNCTION(s_hsh_ast, &kp HASH, &kp ASTERISK)
 SHIFT_FUNCTION(s_lbkt_lbrs, &kp LEFT_BRACKET, &kp LEFT_BRACE)
-SHIFT_FUNCTION(s_lpar_lt, &kp LEFT_PARENTHESIS, &kp LESS_THAN)
+SHIFT_FUNCTION(s_lpar_lt, &kp LPAR, &kp LESS_THAN)
 SHIFT_FUNCTION(s_car_pc, &kp CARET, &kp PERCENT)
 SHIFT_FUNCTION(s_sqt_dql, &kp SINGLE_QUOTE, &kp DOUBLE_QUOTES)
 SHIFT_FUNCTION(s_slh_bslh, &kp SLASH, &kp BACKSLASH)
 SHIFT_FUNCTION(s_pip_unscr, &kp PIPE, &kp UNDERSCORE)
-SHIFT_FUNCTION(s_rpar_gt, &kp RIGHT_PARENTHESIS, &kp GREATER_THAN)  
+SHIFT_FUNCTION(s_rpar_gt, &kp RPAR, &kp GREATER_THAN)
 SHIFT_FUNCTION(s_rbkt_rbrs, &kp RIGHT_BRACKET, &kp RIGHT_BRACE)
 SHIFT_FUNCTION(s_dlr_grv, &kp DOLLAR, &kp GRAVE)
 SHIFT_FUNCTION(s_eq_tld, &kp EQUAL, &kp TILDE)
@@ -86,48 +67,25 @@ SHIFT_FUNCTION(s_at_amp, &kp AT_SIGN, &kp AMPERSAND)
 SHIFT_FUNCTION(s_col_scol, &kp COLON, &kp SEMICOLON)
 
 /* smart mouse */
-ZMK_BEHAVIOR(smart_mouse, tri_state,
-    bindings = <&tog MOS>, <&none>, <&tog MOS>;
-    ignored-key-positions = <                  RT1 RT2 RT3 RT4
-                             LM4 LM3 LM2 LM1   RM1 RM2 RM3 RM4
-                                               RH0 RH1 RH2>;
-    ignored-layers = <MOS>, <BAS>;
-)
+/* ZMK_BEHAVIOR(smart_mouse, tri_state, */
+/*     bindings = <&tog MOS>, <&none>, <&tog MOS>; */
+/*     ignored-key-positions = <                  RT1 RT2 RT3 RT4 */
+/*                              LM4 LM3 LM2 LM1   RM1 RM2 RM3 RM4 */
+/*                                                RH0 RH1 RH2>; */
+/*     ignored-layers = <MOS>, <BAS>; */
+/* ) */
 
-#define s_mouse smart_mouse
+/* #define s_mouse smart_mouse */
 
-/* left-hand HRMs */
-ZMK_BEHAVIOR(hml, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <5000>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    require-prior-idle-ms = <260>;
-    bindings = <&kp>, <&kp>;
-    hold-trigger-on-release;
-    hold-trigger-key-positions = <KEYS_R THUMBS>;
-)
+/* &num_word {  // num-word, requires PR #1451 */
+/*     layers = <NM>; */
+/*     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>; */
+/* }; */
 
-/* right-hand HRMs */
-ZMK_BEHAVIOR(hmr, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <5000>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    require-prior-idle-ms = <260>;
-    bindings = <&kp>, <&kp>;
-    hold-trigger-on-release;
-    hold-trigger-key-positions = <KEYS_L THUMBS>;
-)
-
-/*
-&num_word {  // num-word, requires PR #1451
-    layers = <NM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
-};
-*/
-
-&caps_word {  // mods deactivate caps-word, requires PR #1451
-    /delete-property/ ignore-modifiers;
-};
+/* &caps_word { */
+/*     /delete-property/ ignore-modifiers; */
+/*     continue-list = <UNDERSCORE BACKSPACE DELETE LSHFT RSHFT>; */
+/* }; */
 
 /*                KEY POSITIONS
 
@@ -145,17 +103,22 @@ ZMK_BEHAVIOR(hmr, hold_tap,
 #define COMBO_TERM_FAST 18
 #define COMBO_TERM_SLOW 30
 
+#define RMMOD RGUI
+#define LMMOD LGUI
+#define RSMOD RCTRL
+#define LSMOD LCTRL
+
 /* Horizontal combos - thumbs */
 ZMK_COMBO(bas_inner_thmbs, &to GM,     LH0 RH0, BAS,     COMBO_TERM_FAST)
 ZMK_COMBO(gm_inner_thmbs,  &to BAS,    LH0 RH0,      GM, COMBO_TERM_FAST)
-ZMK_COMBO(bas_mid_thmbs,   &s_mouse,   LH1 RH1, BAS,     COMBO_TERM_FAST)
-ZMK_COMBO(bas_outer_thmbs, &caps_word, LH2 RH2, BAS,     COMBO_TERM_FAST)
+// ZMK_COMBO(bas_mid_thmbs,   &s_mouse,   LH1 RH1, BAS,     COMBO_TERM_FAST)
+// ZMK_COMBO(bas_outer_thmbs, &caps_word, LH2 RH2, BAS,     COMBO_TERM_FAST)
 
 ZMK_LAYER(BASE,
 //╭.............┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬.............╮
     &kp BSLH      &kp Q         &kp W         &kp E         &kp R         &kp T           &kp Y         &kp U         &kp I         &kp O         &kp P         &kp LBKT
 //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-    ___           &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G           &kp H         &hmr RSHFT J  &hmr RCTRL K  &hmr RALT L   &hmr RGUI SC  &kp SQT
+    &kp CAPS      &hml LSMOD A  &hml LALT S   &hml LMMOD D  &hml LSHFT F  &kp G           &kp H         &hmr RSHFT J  &hmr RMMOD K  &hmr RALT L   &hmr RSMOD SC &kp SQT
 //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
     ___           &kp Z         &kp X         &kp C         &hml GLOBE V  &kp B           &kp N         &hmr GLOBE M  &kp COMMA     &kp DOT       &kp FSLH      &kp RBKT
 //╰.............┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴.............╯
@@ -167,7 +130,7 @@ ZMK_LAYER(SYM,
 //╭.............┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬.............╮
     ___           ___           ___           ___           ___           ___             &s_qm_excl    &s_lbkt_lbrs  &s_sqt_dql    &s_rbkt_rbrs  &s_eq_tld     ___
 //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-    ___           &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     ___             &s_min_pls    &s_lpar_lt    &s_slh_bslh   &s_rpar_gt    &s_at_amp     ___
+    ___           &kp LSMOD     &kp LALT      &kp LMMOD     &kp LSHFT     ___             &s_min_pls    &s_lpar_lt    &s_slh_bslh   &s_rpar_gt    &s_at_amp     ___
 //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
     ___           ___           ___           ___           &kp GLOBE     ___             &s_hsh_ast    &s_car_pc     &s_pip_unscr  &s_dlr_grv    &s_col_scol   ___
 //╰.............┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴.............╯
@@ -179,7 +142,7 @@ ZMK_LAYER(NUM,
 //╭.............┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬.............╮
     ___           &kp N1        &kp N2        &kp N3        &kp N4        ___             ___           ___           ___           ___           ___           ___
 //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-    ___           &kp N5        &kp N6        &kp N7        &kp N8        ___             ___           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI      ___
+    ___           &kp N5        &kp N6        &kp N7        &kp N8        ___             ___           &kp RSHFT     &kp RMMOD     &kp RALT      &kp RSMOD      ___
 //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
     ___           &kp N9        &kp N0        &kp MINUS     &kp EQUAL     ___             ___           &kp GLOBE     ___           ___           ___           ___
 //╰.............┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴.............╯
@@ -187,12 +150,11 @@ ZMK_LAYER(NUM,
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
-
 ZMK_LAYER(FN,
 //╭.............┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬.............╮
     ___           &kp F1        &kp F2        &kp F3        &kp F4        ___             ___           ___           ___           ___           ___           ___
 //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-    ___           &kp F5        &kp F6        &kp F7        &kp F8        ___             ___           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI      ___
+    ___           &kp F5        &kp F6        &kp F7        &kp F8        ___             ___           &kp RSHFT     &kp RMMOD     &kp RALT      &kp RSMOD      ___
 //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
     ___           &kp F9        &kp F10       &kp F11       &kp F12       ___             ___           &kp GLOBE     ___           ___           ___           ___
 //╰.............┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴.............╯
@@ -204,7 +166,7 @@ ZMK_LAYER(NAV,
  //╭............─┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬.............╮
      ___           ___           ___           ___           ___           ___             &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       ___           ___
  //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-     ___           &kp LGUI     &kp LALT      &kp LCTRL      &kp LSHFT     ___             &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___           ___
+     ___           &kp LSMOD     &kp LALT      &kp LMMOD     &kp LSHFT     ___             &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___           ___
  //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
      ___           ___           ___           ___           &kp GLOBE     ___             ___           ___           ___           ___           ___           ___
  //╰.............┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴.............╯
@@ -218,7 +180,7 @@ ZMK_LAYER(MOUSE,
  //╭.............┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬.............╮
      ___           ___           ___           ___           ___           ___             &msc SC_L     &msc SC_D     &msc SC_U     &msc SC_R     ___           ___
  //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-     ___           &kp LGUI     &kp LALT      &kp LCTRL      &kp LSHFT     ___             &mmv MV_L     &mmv MV_D     &mmv MV_U     &mmv MV_R     ___           ___
+     ___           &kp LSMOD     &kp LALT      &kp LMMOD     &kp LSHFT     ___             &mmv MV_L     &mmv MV_D     &mmv MV_U     &mmv MV_R     ___           ___
  //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
      ___           ___           ___           ___           ___           ___             ___           ___           ___           ___           ___           ___
  //╰.............┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴.............╯
@@ -230,7 +192,7 @@ ZMK_LAYER(CONF,
  //╭.............┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬.............╮
      &kp C_NEXT    &s_bt_sel_0   &s_bt_sel_1   &s_bt_sel_2   &s_bt_sel_3   &s_bt_sel_4     ___           ___           ___           ___           ___           &s_out_ble
  //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
-     &kp PLY_POS   &kp C_BRI_DN  &kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE      ___           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI      &s_out_tog
+     &kp C_PP      &kp C_BRI_DN  &kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE      ___           &kp RSHFT     &kp RMMOD     &kp RALT      &kp RSMOD     &s_out_tog
  //├.............┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼.............┤
      &kp C_PREV    ___           ___           ___           &bootloader   &sys_reset      &sys_reset    &bootloader   ___           ___           ___           &s_out_usb
  //╰.............┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────┴.............╯
@@ -261,4 +223,3 @@ ZMK_LAYER(GAME_N,
                                               _v_           _v_           _v_             _v_           _v_           _v_ 
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
- 
