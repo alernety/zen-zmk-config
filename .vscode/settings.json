@@ -4,6 +4,7 @@
     "*.keymap": "dts",
   },
   "conventionalCommits.scopes": [
-    "keymap"
+    "keymap",
+    "mouse"
   ]
 }
